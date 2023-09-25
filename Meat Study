@@ -1,0 +1,7 @@
+library(rstudioapi)
+
+setwd(dirname(getActiveDocumentContext()$path)) 
+dtnew <- read.csv("LogisticRegressionDataPMEABB.csv", stringsAsFactors = T)
+rsminabbrab <- glm(Binary ~ Species + Tissue, data = dtnew, family = "binomial")
+summary (rsminabbrab)
+with(summary(rsminabbrab), 1 - deviance/null.deviance)
